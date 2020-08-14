@@ -24,6 +24,10 @@ func GetNotification(reg *config.Registry, secrets *cmdutil.Secrets, timeFilter 
 	switch timeFilter {
 	case "hour":
 		err = HourlyReport(reg, secrets)
+	case "day":
+		err = DailyReport(reg, secrets)
+	case "week":
+		err = WeeklyReport(reg, secrets)
 	default:
 		return fmt.Errorf("unknown filter flag %s", timeFilter)
 	}
